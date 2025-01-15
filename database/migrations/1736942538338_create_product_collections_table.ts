@@ -13,6 +13,7 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('products')
         .onDelete('CASCADE')
+        .notNullable()
 
       table
         .integer('collection_id')
@@ -20,6 +21,7 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('collections')
         .onDelete('CASCADE')
+        .notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

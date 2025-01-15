@@ -7,8 +7,20 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
-      table.integer('role_id').unsigned().references('id').inTable('roles').onDelete('CASCADE')
+      table
+        .integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .notNullable()
+      table
+        .integer('role_id')
+        .unsigned()
+        .references('id')
+        .inTable('roles')
+        .onDelete('CASCADE')
+        .notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

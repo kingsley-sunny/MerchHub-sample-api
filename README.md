@@ -30,5 +30,5 @@ The goal of this Project is to create a api that will replicate the homepage
 - **Backend**: Adonisjs (for handling API requests)
 - **Database**: Mysql
 - **Authentication**: JWT (JSON Web Tokens) for secure user sessions
-<!-- - **Hosting**: AWS, Heroku, or similar cloud hosting platform -->
+- **Hosting**: AWS, Heroku, or similar cloud hosting platform
 

@@ -13,7 +13,13 @@ export default class extends BaseSchema {
       table.string('email').notNullable()
       table.string('phone_no').notNullable()
 
-      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
+      table
+        .integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

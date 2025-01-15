@@ -13,13 +13,13 @@ export default class extends BaseSchema {
       table.decimal('price', 10, 2).notNullable()
       table.decimal('discount_price', 10, 2).notNullable()
 
-      table.integer('vendor_id').unsigned().references('id').inTable('vendors').onDelete('CASCADE')
       table
-        .integer('collection_id')
+        .integer('vendor_id')
         .unsigned()
         .references('id')
-        .inTable('collections')
+        .inTable('vendors')
         .onDelete('CASCADE')
+        .notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')
