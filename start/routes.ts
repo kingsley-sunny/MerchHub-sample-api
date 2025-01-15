@@ -8,7 +8,9 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import { middleware } from './kernel.js'
 const AuthController = () => import('../app/controllers/auth_controller.js')
+const VendorsController = () => import('../app/controllers/vendors_controller.js')
 
 router.get('/', async () => {
   return {
@@ -23,3 +25,11 @@ router
     router.post('/login', [AuthController, 'login'])
   })
   .prefix('auth')
+
+// vendor routes
+router
+  .group(() => {
+    router.post('/apply', [VendorsController, 'register'])
+  })
+  .prefix('vendors')
+  .use(middleware.auth({ guards: ['api'] }))
