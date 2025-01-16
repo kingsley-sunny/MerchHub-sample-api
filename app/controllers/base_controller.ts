@@ -3,7 +3,7 @@ import { ResponseType } from '../base/types/types.js'
 
 @inject()
 export class BaseController {
-  async transformResponse(
+  protected async transformResponse(
     data: Promise<Record<any, any>> | Record<any, any>,
     message = 'Successful',
     statuscode: number = 200

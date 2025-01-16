@@ -5,9 +5,9 @@ meta {
 }
 
 post {
-  url: {{base_url}}/vendors/apply
-  body: json
-  auth: none
+  url: {{base_url}}/products
+  body: multipartForm
+  auth: inherit
 }
 
 body:json {
@@ -17,4 +17,15 @@ body:json {
     "phone_no": "2348123456755",
     "website": "https://www.johndoe.com"
   }
+}
+
+body:multipart-form {
+  name: Real madrid Jersy
+  phone_no: 2348123456755
+  website: https://www.johndoe.com
+  collection_ids: 3
+  collection_ids: 4
+  price: 14000
+  description: Original Liverpool jersey
+  file: @file(/home/bossekc/Pictures/Screenshots/Screenshot from 2025-01-10 00-48-44.png)
 }

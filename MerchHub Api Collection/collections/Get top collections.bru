@@ -1,0 +1,16 @@
+meta {
+  name: Get top collections
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/collections/top
+  body: none
+  auth: none
+}
+
+params:query {
+  ~limit: 10
+  ~page: 1
+}

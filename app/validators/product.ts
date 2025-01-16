@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 import { FieldContext } from '@vinejs/vine/types'
-import { FIVE_MB } from '../base/base_constant.js'
+import { ALLOWED_FILE_TYPES, FIVE_MB } from '../base/base_constant.js'
 
 const validWhenDiscountIsLowerThanPrice = vine.createRule(
   async (value, options, field: FieldContext) => {
@@ -20,7 +20,7 @@ export const createProductValidator = vine.compile(
     price: vine.number().min(1),
     quantity: vine.number().min(1).optional(),
     discount_price: vine.number().min(1).optional().use(validWhenDiscountIsLowerThanPrice()),
-    file: vine.file({ extnames: ['jpg', 'png', 'jpeg', 'webp'], size: FIVE_MB }).optional(),
+    file: vine.file({ extnames: ALLOWED_FILE_TYPES, size: FIVE_MB }).optional(),
   })
 )
 
@@ -38,6 +38,6 @@ export const updateProductValidator = vine.compile(
     price: vine.number().min(1).optional(),
     quantity: vine.number().min(1).optional(),
     discount_price: vine.number().min(1).use(validWhenDiscountIsLowerThanPrice()).optional(),
-    file: vine.file({ extnames: ['jpg', 'png', 'jpeg', 'webp'], size: FIVE_MB }).optional(),
+    file: vine.file({ extnames: ALLOWED_FILE_TYPES, size: FIVE_MB }).optional(),
   })
 )
