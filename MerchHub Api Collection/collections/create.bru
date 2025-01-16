@@ -6,15 +6,19 @@ meta {
 
 post {
   url: {{base_url}}/collections
-  body: json
-  auth: none
+  body: multipartForm
+  auth: inherit
 }
 
 body:json {
   {
     "name": "John Doe Store",
-    "description": "The best cloth store",
-    "phone_no": "2348123456755",
-    "website": "https://www.johndoe.com"
+    "image_url": "https://www.johndoe.com"
   }
+}
+
+body:multipart-form {
+  name: Shoes
+  image_url: https://i.imgur.com/mp3rUty.jpeg
+  file: @file(/home/bossekc/Pictures/Screenshots/Screenshot from 2025-01-10 00-48-44.png)
 }
