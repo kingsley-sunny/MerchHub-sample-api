@@ -22,8 +22,8 @@ export default class AuthController extends BaseController {
       await user.save()
       console.log('user', user)
 
-      // Attached the user role (defaults to user, which is 3)
-      await UserRole.create({ role_id: 3, user_id: user.id }, { client: trx })
+      // Attached the user role (defaults to user, which is 4)
+      await UserRole.create({ role_id: 4, user_id: user.id }, { client: trx })
 
       return user
     })
@@ -37,6 +37,9 @@ export default class AuthController extends BaseController {
 
     // check if the user is exist and if the password is the same
     let user = await User.verifyCredentials(email, password)
+
+    await user.preload('roles')
+    await user.load('vendor')
 
     // create an access token and assign it to the user
     const token = await User.accessTokens.create(user)

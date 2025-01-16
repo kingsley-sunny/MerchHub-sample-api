@@ -16,3 +16,11 @@ body:json {
     "password": "johndoe"
   }
 }
+
+vars:post-response {
+  token: res.body.data.token
+}
+
+script:post-response {
+  console.log(res.getBody())
+}

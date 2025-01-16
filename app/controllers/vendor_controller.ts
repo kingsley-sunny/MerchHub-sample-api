@@ -23,7 +23,7 @@ export default class VendorsController extends BaseController {
     vendor.user_id = user.id
     await vendor.save()
     // update the user is vendor profile
-    await user.merge({ is_vendor: true }).save()
+    await user.related('roles').attach([3])
     // return the vendor
     return this.transformResponse(vendor, 'Vendor created successfully', 201)
   }

@@ -11,7 +11,8 @@ export default class extends BaseSchema {
       table.string('image_url').nullable()
       table.text('description').nullable()
       table.decimal('price', 10, 2).notNullable()
-      table.decimal('discount_price', 10, 2).notNullable()
+      table.decimal('discount_price', 10, 2).nullable()
+      table.integer('quantity').notNullable().defaultTo(1)
 
       table
         .integer('vendor_id')
