@@ -43,7 +43,16 @@ router
       .post('/', [ProductsController, 'create'])
       .use([middleware.auth({ guards: ['api'] }), middleware.allowRole([UserRoleEnum.VENDOR])])
 
+    router
+      .put('/:id', [ProductsController, 'update'])
+      .use([middleware.auth({ guards: ['api'] }), middleware.allowRole([UserRoleEnum.VENDOR])])
+
+    router
+      .delete('/:id', [ProductsController, 'delete'])
+      .use([middleware.auth({ guards: ['api'] }), middleware.allowRole([UserRoleEnum.VENDOR])])
+
     // get products
     router.get('/', [ProductsController, 'findAll'])
+    router.get('/:id', [ProductsController, 'findOne'])
   })
   .prefix('/products')

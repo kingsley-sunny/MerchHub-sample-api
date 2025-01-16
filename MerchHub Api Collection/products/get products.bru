@@ -5,14 +5,15 @@ meta {
 }
 
 get {
-  url: {{base_url}}/products?search=polo&priceRange=200,10000
+  url: {{base_url}}/products?orderBy=desc
   body: none
   auth: none
 }
 
 params:query {
-  search: polo
-  priceRange: 200,10000
+  orderBy: desc
+  ~search: polo
+  ~priceRange: 200,10000
   ~limit: 1
   ~page: 2
 }

@@ -1,0 +1,35 @@
+meta {
+  name: edit product
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{base_url}}/products/:id
+  body: multipartForm
+  auth: inherit
+}
+
+params:path {
+  id: 3
+}
+
+body:json {
+  {
+    "name": "John Doe Store",
+    "description": "The best cloth store",
+    "phone_no": "2348123456755",
+    "website": "https://www.johndoe.com"
+  }
+}
+
+body:multipart-form {
+  description: Original Madrid jersey
+  ~name: Liverpool Jersy
+  ~phone_no: 2348123456755
+  ~website: https://www.johndoe.com
+  ~collection_ids: 3
+  ~collection_ids: 4
+  ~price: 10000
+  ~file: @file(/home/bossekc/Pictures/Screenshots/Screenshot from 2025-01-10 00-48-44.png)
+}
